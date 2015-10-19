@@ -1,0 +1,977 @@
+@import "setup";	
+
+// HERE ARE DESIGN ELEMENTS
+
+$titleFont:'Roboto Condensed', sans-serif;
+$bodyFont:'Source Sans Pro', sans-serif;
+$textfont:'Lato', sans-serif;
+$teal: #4ae5d1;
+$white: #ffffff;
+$fontblack: #222222;
+$lightgrey: #c2c2c2;
+$footblack: #1b1b1b;
+$navblack: #141414;
+
+// END OF THE DESIGN ELEMENTS
+
+@mixin fontSize($number) {
+	font-size: ($number) * 1px;
+	font-size: ($number / 10) * 1rem;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	@include fontSize(16);
+	color: $lightgrey;
+}
+
+h1 {
+	@include fontSize(60);
+	font-family: $titleFont;
+	font-weight: 700;
+	letter-spacing: 10px;
+	text-transform: uppercase;
+	color: white;
+	margin: 0;
+}
+
+h2 {
+ 	@include fontSize(30);
+ 	font-family: $titleFont;
+	text-transform: uppercase;
+	color: black;
+	margin: 0;
+}
+
+h3 {
+	@include fontSize(20);
+	font-family: $titleFont;
+	font-weight: 700;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: white;
+	margin: 0;
+}
+
+h4 {
+	@include fontSize(13);
+	font-family: $titleFont;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 400;
+	color: white;
+	margin: 0;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+img {
+	max-width: 100%;
+}
+
+a {
+	text-decoration: none;
+	text-transform: uppercase;
+	color: white;
+	font-size: 1.2rem;
+}
+
+p {
+	font-size: 1.5rem;
+	font-family: $textfont;
+	font-weight: lighter;
+}
+
+i {
+	color: white;
+}
+
+// THIS IS THE START OF THE HEADER
+
+div.wrapper {
+	width: 90%;
+	margin: 0 auto;
+	position: relative;
+}
+
+header {
+	background: url(assets/hero.jpg) no-repeat;
+	background-size: cover;
+	height: 100vh;
+}
+
+nav.topnav {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	& > * {
+		flex:1 0 auto;
+	}
+}
+
+
+div.rightnav ul {
+	display: flex;
+	flex:wrap;
+	& > * {
+		flex: 1 0 auto;
+		text-align: right;
+	}
+	li a:hover {
+		color: $lightgrey;
+	}
+	i:hover {
+		color: $lightgrey;
+	}
+}
+
+div.leftnav p {
+	color: white;
+	letter-spacing: .5rem;
+	text-transform: uppercase;
+}
+
+div.mainheading {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 80px 0;
+	padding-bottom: 50px;
+	div.mainchild {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	h1 {
+		width: 60%;
+		margin: 0 auto;
+		text-align: center;
+	}
+}
+
+div.weather {
+	color: white;
+}
+
+div.fa-bars {
+	display: none;
+}
+
+// THIS IS THE DROPDOWN MENU NAV 3\
+
+div.nav3 {
+	display: none;
+}
+
+nav.nav2 ul li:hover > div.nav3 {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 3rem;
+	background: rgba(0,0,0,.7);
+	position:absolute;
+	left: 0;
+	bottom: -27%;
+	width: 100%;
+	z-index: 9999999;
+	& > * {
+		margin: 0 auto;
+	}
+	button {
+		margin-top: 3rem;
+		width: 150px;
+		height: 25%;
+		p {
+			font-size: .8rem;
+		}
+	}
+}
+
+div.nav3 input, div.nav3 select {
+	background: none;
+	border: 2px solid $lightgrey;
+	border-radius: 5px;
+	color: $lightgrey;
+	font-size: 1.5rem;
+}
+
+div.nav3 input:focus, div.nav3 select:focus {
+	border: 2px solid $teal;
+	outline: none;
+}
+
+// THIS IS THE BUTTON STYLING FOR THE SITE
+
+button {
+	background: $teal;
+	color: white;
+	border-radius: 1rem;
+	text-transform: uppercase;
+	font-family: $textfont;
+	font-size: 1rem;
+	padding: 1rem 2rem;
+	box-shadow: none;
+	border: 2.5px solid rgba(0,0,0,0.0);
+	z-index: 9999;
+	position: relative;
+	p {
+		margin: 0;	
+	}
+	img {
+		margin-right: 1rem;
+	}
+	&:hover {
+		background: none;
+		border: 2.5px solid $teal;
+	}
+}
+
+// THIS IS THE BUTTON STYLING FOR THE SITE
+
+// THIS IS THE START OF THE GALLERY SECTION
+
+ul.information {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	width: 40%;
+	margin: 0 auto;
+	li {
+		border: 1px solid $lightgrey;
+		border-right: none;
+		padding: 1.5rem;
+		flex: 1 0 auto;
+	}
+	li:last-child {
+			border-right: 1px solid $lightgrey;
+	}
+}
+
+section.gallery span {
+	font-weight: 700;
+}
+
+section.divider {
+	text-align: center;
+	padding: 10rem 0;
+}
+
+ul.gallerytop {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 0 auto;
+	margin-bottom: 10rem;
+	li {
+		width: 32%;
+		margin-bottom: 2%;
+		background-size: cover;
+		padding: 3rem;	
+		border-radius: 8px;
+		position: relative;
+	}
+	li h3 {
+		padding-top: 4rem;
+	}
+	div.clickme {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		p {
+			font-size: 1rem;
+		}
+	}
+}
+
+div.overlay {
+	display: block;
+	background: rgba(1,1,1,0.5);
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	opacity: 0;
+	transition: opacity0.5s;
+	&:hover {
+		opacity: 1;
+	}
+}
+
+
+div.clickmeright {
+	padding-top: 2rem;
+}
+
+div.clickmeleft img {
+	margin-right: 1rem;
+}
+
+div.alignc {
+	text-align: center;
+	margin-bottom: 10rem; 
+	img {
+		padding: 1.5rem;
+	}
+}
+
+li.bolivia {
+	background: url(assets/tour-1.jpg);
+}
+
+li.patagonia {
+	background: url(assets/tour-2.jpg);
+}
+
+li.torres {
+	background: url(assets/tour-3.jpg);
+}
+
+li.santorini {
+	background: url(assets/tour-4.jpg);
+}
+
+li.turkey {
+	background: url(assets/tour-5.jpg);
+}
+
+li.china {
+	background: url(assets/tour-6.jpg);
+}
+
+// THIS IS THE CLOSING OF THE DIVIDER GALLERY
+
+// THIS IS THE START OF FLICKITY BANNER 
+
+div.bava, div.algonquin, div.grand {
+	text-align: center;
+	background: url(assets/banner.jpg);
+	padding: 8rem 0;
+	width: 100%;
+	h2 {
+		color: white;
+	}
+	img {
+		margin: 2rem;
+	}
+	p {
+		color: white;
+	}
+	span {
+		font-weight: bold;
+	}
+}
+
+div.algonquin {
+	background: url(https://upload.wikimedia.org/wikipedia/commons/3/33/African_landscape.jpg) no-repeat;
+	margin: 0 auto;
+	h2 {
+		color: black;
+	}
+	h4 {
+		color: black;
+	}
+	p {
+		color: black;
+	}
+}
+
+div.grand {
+	background: url(https://upload.wikimedia.org/wikipedia/commons/7/77/Dominica_Panorama_5.jpg) no-repeat;
+}
+
+
+// THIS IS THE END OF THE FLICKITY BANNER
+
+// THIS IS THE START OF THE SPECIAL OFFER SECTION
+
+ul.galleryoffer {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 0 auto;
+	li {
+		margin-bottom: 0;
+		padding: 2rem;
+		width: 32%;
+		background-size: cover;
+		text-align: left;
+	
+		span {
+			font-weight: bold;
+			margin-right: 5px;
+			@include fontSize(20);
+		}
+		ul {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		color: white;
+		li {
+			padding: 0.3rem;
+		}
+		li:nth-child(2) {
+			border-left: 1px solid $lightgrey;
+			border-right: 1px solid $lightgrey;
+			text-align: center;
+		}
+		}
+	}
+}
+
+div.toleft {
+	margin-bottom: 15rem;
+	img {
+		margin: 1rem;
+	}
+}
+
+div.deal p {
+	line-height: 2;
+}
+
+li.greece {
+	background: url(assets/greece.jpg);
+}
+
+li.china2 {
+	background: url(assets/china.jpg);
+
+}
+
+li.canada {
+	background: url(assets/canada.jpg);
+}
+
+// THIS IS THE END OF THE SPECIAL OFFER SECTION
+
+// THIS IS THE START OF THE POPULAR SECTIONS
+
+div.travelcities {
+	display: flex;
+	flex-wrap: wrap;
+	& > * {
+		flex: 1 0 50%;
+	}
+}
+
+div.travelcities2 {
+	flex-direction: row-reverse;
+	margin-bottom: 3rem;
+}
+
+div.boxleft {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	li {
+		background-size: cover;
+		border-radius: 8px;
+		padding: 2rem;
+		padding-top: 12rem;
+		h3 {
+			margin-bottom: 5px;
+		}
+	}
+	span {
+		color: $teal;
+	}
+}
+
+div.boxleft ul {
+	display: flex;
+	flex-wrap: wrap;
+	& > * {
+		flex: 1 0 46%;
+		margin-right: 2%;
+		margin-top: 2%;
+	}
+}
+
+div.italy {
+	background: url(assets/italymap.png) no-repeat;
+	background-position: center;
+	width: 50%;
+	padding: 3rem;
+	h3 {
+		color: black;
+		margin-top: 1.5rem;
+	}
+	h4 {
+		color: black;
+		display: block;
+	}
+	p {
+		line-height: 2;
+	}
+}
+
+div.citylist {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 2rem 0;
+	& > * {
+		flex: 1 0 33.33%;
+	}
+}
+
+div.citylist ul {
+	list-style: disc;
+}
+
+div.france {
+	text-align: right;
+	ul {
+		list-style-position: inside;
+	}
+}
+
+div.italy button:hover, div.italy i:hover {
+	color: $lightgrey;
+}
+
+li.pic1 {
+	background: url(assets/italy-small.jpg);
+
+}
+
+li.pic2 {
+	background: url(assets/italy-small2.jpg);
+}
+
+li.pic3 {
+	background: url(assets/italy-small3.jpg);
+}
+
+li.pic4 {
+	background: url(assets/italy-small4.jpg);
+}
+
+li.pic5 {
+	background: url(assets/francesmall1.jpg);
+}
+
+li.pic6 {
+	background: url(assets/francesmall2.jpg);
+}
+
+li.pic7 {
+	background: url(assets/francesmall3.jpg);
+}
+
+li.pic8 {
+	background: url(assets/francesmall4.jpg);
+}
+
+
+
+// THIS IS THE START OF THE FOOTER 
+
+footer.main {
+	background: $footblack;
+}
+
+div.overallfooter {
+	padding: 8rem 0;
+	display: flex;
+	flex-wrap: none;
+	& > * {
+		flex: 1 0 20%;
+	}
+}
+
+div.foot1 {
+	color: white;
+	letter-spacing: .5rem;
+	text-transform: uppercase;
+	border-right: 1px solid $lightgrey;
+	display: inline-block;
+	width: 100%;
+	img {
+		margin: 1rem;
+		line-height: 1;
+	}
+}
+
+div.foot2 {
+	padding: 2rem 3rem;
+	padding-top: 0;
+	h4 {
+		padding-bottom: 2rem;
+	}
+	li {
+		padding-bottom: 1rem;
+		font-size: 1rem;
+	}
+	a {
+		text-transform: capitalize;
+		font-size: 1rem;
+		color: $lightgrey;
+	}
+}
+
+div.foot2 a:hover {
+	color: $teal;
+}
+
+div.foot3 {
+	padding: 2rem 3rem;
+	padding-top: 0;
+	border-right: 1px solid $lightgrey;
+	h4 {
+		padding-bottom: 2rem;
+	}
+	li {
+		padding-bottom: 1rem;
+		font-size: 1rem;
+	}
+	a {
+		text-transform: capitalize;
+	}
+}
+
+div.foot3 li:hover {
+	color: $teal;
+}
+
+div.split {
+	display: flex;
+	flex-wrap: wrap;
+	& > * {
+		flex: 1 0 50%;
+	}
+}
+
+div.foot4 {
+	padding: 0 3rem;
+	border-right: 1px solid $lightgrey;
+}
+
+
+button.facebook {
+	background: rgb(59,89,152);
+}
+
+div.fnum {
+	display: flex;
+	flex-wrap: none;
+}
+div.num {
+	position: relative;
+	padding: 1rem;
+	right:0;
+	background: white;
+	color: black;
+	text-align: center;
+	border-radius: 0px 5px 5px 0;
+	margin: 5px 0;
+}
+
+button.fu {
+	width: 70%;
+	display: inline;
+	border-radius: 0px 0 0px 5px;
+	padding: 1px 8px;
+}
+button.twitter {
+	background: rgb(85,172,238);
+}
+
+button.google {
+	background: rgb(211,72,54);
+}
+
+button.pinterest {
+	background: rgb(201,34,40);
+}
+div.social {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	button {
+		margin: 0.5rem 0;
+		i {
+		color: $lightgrey;
+		margin-right: 5px;
+		display: inline-block;
+		}
+	}
+	h4 {
+		padding-bottom: 2rem;
+	}
+}
+
+div.social button a {
+	text-transform: lowercase;
+	font-size: 1.4rem;
+	font-family: $textfont;
+	font-weight: lighter;
+	color: $lightgrey;
+}
+
+div.foot5 {
+	padding:0 3rem;
+	h4 {
+	padding-bottom: 2rem;
+	}
+	i {
+	position: absolute;
+	color: $lightgrey;
+	right: 50px;
+	top: 5px;
+	}
+	form {
+	position: relative;
+	}
+	input[type=email] {
+	background: none;
+	color: $lightgrey;
+	font-size: 1rem;
+	padding: 1rem;
+	border-radius: 1rem;
+	margin-bottom: 1.5rem;
+	border: 1px solid $lightgrey;
+	width: 80%;
+	}
+	input[type=submit] {
+	background: $teal;
+	color: white;
+	border-radius: 1rem;
+	text-transform: uppercase;
+	font-family: $textfont;
+	font-size: 1.5rem;
+	padding: 1rem 2rem;
+	box-shadow: none;
+	border: none;
+	width: 80%;
+	p {
+		margin: 0;	
+	}
+	}
+}
+
+
+// THIS IS THE END OF THE FOOTER
+
+// THIS IS THE START OF THE FOOTER FINAL
+
+footer.final {
+	background: $navblack;
+}
+
+footer nav {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	& > * {
+		flex: 1 0 50%;
+	}
+	p {
+		text-align: right;
+		padding-right: 1rem;
+		font-size: 1.3rem;
+	}
+}
+
+footer nav ul {
+	display: flex;
+	flex-wrap: wrap;
+	li {
+		padding: 1.5rem;
+		padding-left: 0;
+	}
+}
+
+// THIS IS THE END OF THE FOOTER FINAL
+
+
+// RESPONSIVE SECTION 
+// RESPONSIVE SECTION 
+// RESPONSIVE SECTION 
+// RESPONSIVE SECTION 
+
+.flexplicit {
+	display: flex !important;
+	}
+
+
+div.rightnav ul {
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	justify-content: space-between;
+}
+
+@media all and (max-width: 940px) {	
+	div.mainchild {
+		text-align: center;
+	}
+	nav.nav2 ul {
+		display: flex;
+		flex-direction: row;
+		align-content: flex-start;
+		width: 80%;
+		li {
+			border: 1px solid $lightgrey;
+			text-align: center;
+		}
+	}
+	nav.nav2 {
+		width: 100%;
+	}
+}	
+
+@media (max-width: 767px) {
+
+	div.rightnav ul {
+		display: none;	
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background: rgba(255,255,255,0.7);
+		flex-direction: column;
+		align-items: center;
+	}
+
+	div.rightnav li {
+		padding: 20px;
+		flex: 1 0 auto;
+	}
+
+	div.rightnav li a {
+		color: black;
+		font-size: 2.5rem;
+	}
+	div.fa-bars {
+		display: block;
+		text-align: right;
+		color: $teal;
+	}
+
+	nav.nav2 ul li:hover > div.nav3 {
+	position:absolute;
+	left: 0;
+	bottom: -42%;
+	width: 100%;
+	}
+	ul.gallerytop {
+		li {
+			width: calc(50% - 6%);
+			margin: 3%;
+		}
+	}
+	div.travelcities {
+	flex-direction: column-reverse;
+		div.italy {
+			width: 100%;
+		}
+	}
+
+	ul.galleryoffer {
+	flex-direction: column;
+	}
+
+	ul.galleryoffer li {
+	width: 75%;
+	margin: 10px auto;
+	border-radius: 5px;
+	}
+
+	div.deal ul {
+	flex-direction: column;
+	li {
+		margin: 0;
+	}
+	}
+	
+	ul.galleryoffer li ul li:nth-child(2) {
+	text-align: left;
+	border: none;
+	}
+
+	footer.main div.wrapper {
+	width: 75%;
+	}
+
+	div.overallfooter {
+	flex-direction: column;
+	}
+
+	div.foot1, div.foot2, div.foot3, div.foot4 {
+	border:none;
+	}
+
+	footer.final div.wrapper {
+	width: 75%;
+	}
+
+	footer.final ul {
+	flex-direction: column;
+	}
+
+}
+
+
+
+@media (max-width: 480px) {
+	ul.gallerytop {
+	flex-direction: column;
+		li {
+		margin: 3% auto;
+		width: 75%;
+		}
+	}
+	div.mainchild h1 {
+		width: 100%;
+		font-size: 5rem;
+	}
+	div.toleft {
+		margin-bottom: 30px;
+	}
+	nav.nav2 ul li:hover > div.nav3 {
+	display: block;
+	flex-wrap: wrap;
+	padding: 3rem;
+	background: rgba(0,0,0,1);
+	position: relative;
+	bottom: -27%;
+	left: 0px;
+	width: 120%;
+	z-index: 99999;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
